@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 5 Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="bg-primary">
+
+<div class="container-fluid p-5 text-white text-center">
+  <h1 style="margin-top: 7%;">Get Your Lucky Number</h1>
+  <p style="font-size: 200px;" id="result">7</p>
+  <button class="btn btn-light" style="padding: 1%;" onclick="clickButton()">Get Lucky !!</button> 
+</div>
+
+<script>
+  
+  var counter = 0;
+  var getInterval;
+
+  function getRandomNumber(){
+          // misal dapet angka 7
+          var max = 100;
+          var min = 1;
+
+          return Math.floor(Math.random() * (max - min + 1) ) + min;
+
+  }
+
+  function clickButton(){
+    console.log("Test Click Button !");
+    getInterval = setInterval(runningRandomNumber,100);
+  }
+
+  function runningRandomNumber(){
+    counter++;
+    console.log("Nilai Counter ",counter);
+    // 7
+    var getRandom = getRandomNumber();
+    document.getElementById("result").innerHTML = getRandom;
+
+    if(counter === 20){
+      console.log("Nilai Counter Berhenti ",counter);
+      // berhentikan interval js
+      clearInterval(getInterval);
+      counter = 0;
+    }
+
+  }
+
+
+</script>
+</body>
+</html>
